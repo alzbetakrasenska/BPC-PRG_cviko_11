@@ -50,7 +50,31 @@ class StudentsGrades:
             print(f"Student {i}: {results.scores[i]} points - {grade}")
         print(results.get_sorted())
 
+    def average(self):
+        return round(sum(results.scores) / results.count(), 1)
 
+    def best(self):
+        s = results.get_sorted()
+        return s[-1]
+
+    def worst(self):
+        s = results.get_sorted()
+        return s[0]
+
+    def pass_rate(self):
+        counter = 0
+        for num in results.scores:
+            if num >= 50:
+                counter += 1
+        return round(counter / results.count(), 2)
+
+def main():
+    results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
+    print(results.count())
+    for i in range(results.count()):
+        grade = results.get_grade(i)
+        print(f"Student {i}: {results.scores[i]} points - {grade}")
+    print(results.get_sorted())
 
 if __name__ == "__main__":
     results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
@@ -61,7 +85,10 @@ if __name__ == "__main__":
     # print(results.get_grade(7))
     # print(results.find(50))
     # print(results.get_sorted())
-    # print(results.main())
+
     random_results = StudentsGrades(random_numbers(8, 0, 100))
     print(random_results.count())
     print(random_results.get_sorted())
+    print(results.average())
+    print(results.best())
+    print(results.pass_rate())
