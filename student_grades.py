@@ -34,7 +34,7 @@ class StudentsGrades:
         return idx
 
     def get_sorted(self):
-        num_copy = results.scores
+        num_copy = self.scores
         sorted_n = 0
         while sorted_n < len(num_copy):
             for i in range(1, len(num_copy)):
@@ -62,6 +62,6 @@ if __name__ == "__main__":
     # print(results.find(50))
     # print(results.get_sorted())
     # print(results.main())
-    random_results = StudentsGrades(random_numbers(30, 0, 100))
+    random_results = StudentsGrades(random_numbers(8, 0, 100))
     print(random_results.count())
     print(random_results.get_sorted())
